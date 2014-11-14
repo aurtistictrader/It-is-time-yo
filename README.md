@@ -1,6 +1,7 @@
 Remind Me YO
+=========
 
-Running Locally
+Running Web Server Locally (on MacOS)
 
 Prerequisites:
 	Python
@@ -10,7 +11,9 @@ Prerequisites:
 ```sh
 git clone https://github.com/chunky123/RemindMeYo.git
 cd RemindMeYo
-pip install -r requirements.txt
+virtualenv venv
+source venv/bin/activate
+pip install -r requirements.txt --allow-all-external
 foreman start web
 ```
 
