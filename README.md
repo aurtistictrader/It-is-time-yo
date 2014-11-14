@@ -4,9 +4,8 @@ Remind Me YO
 Running Web Server Locally (on MacOS)
 
 Prerequisites:
-	Python
-	Pip
-	Postgresql
+
+Python, Pip, Postgresql are installed
 
 ```sh
 git clone https://github.com/chunky123/RemindMeYo.git
