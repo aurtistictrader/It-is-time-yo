@@ -27,7 +27,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -60,15 +60,21 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'NAME': 'd2nromg7sp6fn4',
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'USER': 'gofudpafgikgji',
+    #     'PASSWORD': '_nc43pl3RW-0WJsYzA_HwfX_Sf',
+    #     'HOST': 'ec2-54-204-39-187.compute-1.amazonaws.com',
+    #     'PORT': '5432',
+    #     #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # },
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'd2nromg7sp6fn4',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'USER': 'gofudpafgikgji',
-        'PASSWORD': '_nc43pl3RW-0WJsYzA_HwfX_Sf',
-        'HOST': 'ec2-54-204-39-187.compute-1.amazonaws.com',
-        'PORT': '5432',
-        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'PASSWORD': '_nc43pl3RW-0WJsYzA_HwfX_Sf'
+    },
 }
 
 # Internationalization
@@ -92,7 +98,8 @@ STATIC_URL = '/static/'
 
 
 # Parse database configuration from $DATABASE_URL
-DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'] =  dj_database_url.config(DATABASE_URL)
+#DATABASES['default'] =  dj_database_url.config('postgres://gofudpafgikgji:_nc43pl3RW-0WJsYzA_HwfX_Sf@ec2-54-204-39-187.compute-1.amazonaws.com:5432/d2nromg7sp6fn4')
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
