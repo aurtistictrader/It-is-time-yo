@@ -11,7 +11,7 @@ def index(request):
 def db(request):
 
     greeting = Greeting()
-    greeting.save()
+    greeting.save(using='d2nromg7sp6fn4')
 
     greetings = Greeting.objects.all()
 
