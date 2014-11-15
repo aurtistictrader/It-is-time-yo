@@ -39,7 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hello'
+    'hello',
+    'gettingstarted',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -61,14 +62,13 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 
 DATABASES = {
     'default': {
-        'NAME': 'd2nromg7sp6fn4',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd2nromg7sp6fn4',
         'USER': 'gofudpafgikgji',
         'PASSWORD': ***REMOVED***,
         'HOST': 'ec2-54-204-39-187.compute-1.amazonaws.com',
         'PORT': '5432',
-        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    },
+    }
 }
 
 # Internationalization
@@ -92,8 +92,8 @@ STATIC_URL = '/static/'
 
 
 # Parse database configuration from $DATABASE_URL
-# DATABASES['default'] =  dj_database_url.config()
-DATABASES['default'] =  dj_database_url.config('postgres://gofudpafgikgji:_nc43pl3RW-0WJsYzA_HwfX_Sf@ec2-54-204-39-187.compute-1.amazonaws.com:5432/d2nromg7sp6fn4')
+DATABASES['default'] =  dj_database_url.config()
+#DATABASES['default'] =  dj_database_url.config('postgres://gofudpafgikgji:_nc43pl3RW-0WJsYzA_HwfX_Sf@ec2-54-204-39-187.compute-1.amazonaws.com:5432/d2nromg7sp6fn4')
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

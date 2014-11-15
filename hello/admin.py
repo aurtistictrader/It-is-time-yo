@@ -1,5 +1,5 @@
 from django.contrib import admin
-from hello.models import Greeting
+from .models import Reminder
 
 # Register your models here.
-admin.site.register(Greeting)
+admin.site.register(Reminder)

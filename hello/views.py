@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .models import Greeting
+from .models import Reminder
 
 # Create your views here.
 def index(request):
@@ -10,10 +10,10 @@ def index(request):
 
 def db(request):
 
-    greeting = Greeting()
+    greeting = Reminder()
     greeting.save(using='default')
 
-    greetings = Greeting.objects.all()
+    greetings = Reminder.objects.all()
 
     return render(request, 'db.html', {'greetings': greetings})
 
