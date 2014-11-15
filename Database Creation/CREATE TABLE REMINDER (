@@ -1,6 +1,7 @@
-CREATE TABLE REMINDER (
-	username varchar(128) PRIMARY KEY,
-	message varchar(400)	NOT NULL,
+CREATE TABLE HELLO_REMINDER (
+	id serial NOT NULL PRIMARY KEY,
+	username varchar(128) NOT NULL,
+	message varchar(400) NOT NULL,
 	time_created DATE NOT NULL,
 	time_left DATE NOT NULL
 );

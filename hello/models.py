@@ -5,4 +5,4 @@ class Reminder(models.Model):
 	username = models.CharField(max_length=128)
 	message = models.CharField(max_length=400)
 	time_created = models.DateTimeField('date created', auto_now_add=True)
-	time_left = models.DateTimeField('date created', auto_now_add=False)
+	time_left = models.DateTimeField('date created', auto_now_add=True)
