@@ -8,7 +8,7 @@ from .models import Reminder
 # Create your views here.
 def index(request):
 
-    return render(request, 'submit.html', {'form': NameForm()})
+    return render(request, 'submit.html', {'form': NameForm(), 'greetings': Reminder.objects.all()})
 
 def submit(request):
     # if this is a POST request we need to process the form data
@@ -31,7 +31,7 @@ def submit(request):
     else:
         form = NameForm()
 
-    return render(request, 'submit.html', {'form': form})
+    return render(request, 'submit.html', {'form': form, 'greetings': Reminder.objects.all() })
 
 def db(request):
 
