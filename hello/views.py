@@ -22,7 +22,7 @@ def submit(request):
             my_model.username = form.cleaned_data.get('username')
             my_model.message = form.cleaned_data.get('message')
             # my_model.time_left = form.cleaned_data.get('time_left')
-            my_model.time_left = strftime("%b %d %Y %H:%M:%S", gmtime())            #TODO: Change this depending on user input
+            my_model.time_left = strftime("%H:%M:%S", gmtime())            #TODO: Change this depending on user input
             my_model.time_created = strftime("%b %d %Y %H:%M:%S",gmtime())
             my_model.save()	
             # process the data in form.cleaned_data as required
