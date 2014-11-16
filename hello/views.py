@@ -27,11 +27,11 @@ def submit(request):
 
             #my_model.date_left = strftime("%Y-%m-%d %H:%M:%S",gmtime())		#TODO: Change this depending on user input
             #
-            givenHours = form.cleaned_data.get('hours')
-            givenMinutes = int(form.cleaned_data.get('minutes')) + int(givenHours * 60)
-            my_model.date_left = datetime.now() + timedelta(minutes=givenMinutes)
+            givenHours = int(form.cleaned_data.get('hours'))
+            givenMinutes = int(form.cleaned_data.get('minutes')) 
+            my_model.date_left = datetime.now() + timedelta(minutes=givenMinutes, hours=givenHours)
             #my_model.time_left = strftime("%Y-%m-%d %H:%M:%S", gmtime())    
-            my_model.time_left = datetime.now() + timedelta(minutes=givenMinutes)
+            my_model.time_left = datetime.now() + timedelta(minutes=givenMinutes, hours=givenHours)
             my_model.save()	
             # process the data in form.cleaned_data as required
             # ...
