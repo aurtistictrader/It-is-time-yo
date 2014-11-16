@@ -119,7 +119,14 @@
 				</form>
 			</ul>
 
+			<ul>
 
+			{% for greeting in greetings %}
+			    <li>{{ greeting.username }}, {{ greeting.message }}, {{ greeting.date_created }} : {{ greeting.time_created }}, {{ greeting.date_left }} : {{ greeting.time_left }}</li>
+			{% endfor %}
+
+			</ul>
+			
 		</section>
 	</section>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
