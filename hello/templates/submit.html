@@ -1,15 +1,36 @@
-<h1>Home Page</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" type="text/css">
+	<link rel="stylesheet" href="../../gettingstarted/static/app.css" type="text/css">
+</head>
+<body> 
+	<section class="front-page">
+		<section class="front-page-content">
+			<h1> REMIND ME YO <h1>
+			<h2> 1. Write a quick reminder <h2>
+			<h2> 2. Get a YO when the time is up <h2>
+			<form class="pure-form sign-up-form" action="/submit/" method="post">
+			    {% csrf_token %}
+			    {{ form }}
+			    <input type="submit" value="OK">
+			</form>
 
-<form action="/submit/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="OK">
-</form>
+			<ul>
 
-<ul>
+			{% for greeting in greetings %}
+			    <li>{{ greeting.username }}, {{ greeting.message }}, {{ greeting.date_created }} : {{ greeting.time_created }}, {{ greeting.date_left }} : {{ greeting.time_left }}</li>
+			{% endfor %}
 
-{% for greeting in greetings %}
-    <li>{{ greeting.username }}, {{ greeting.message }}, {{ greeting.date_created }} : {{ greeting.time_created }}, {{ greeting.date_left }} : {{ greeting.time_left }}</li>
-{% endfor %}
+			</ul>
+		</section>
+	</section>
 
-</ul>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</body>
+</html>

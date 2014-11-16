@@ -38,13 +38,3 @@ def submit(request):
         form = NameForm()
 
     return render(request, 'submit.html', {'form': form, 'greetings': Reminder.objects.all() })
-
-def db(request):
-
-    greeting = Reminder()
-    greeting.save(using='default')
-
-    greetings = Reminder.objects.all()
-
-    return render(request, 'db.html', {'greetings': greetings})
-
