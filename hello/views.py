@@ -25,7 +25,7 @@ def submit(request):
             my_model.time_created = strftime("%H:%M:%S",gmtime())
 
             my_model.date_left = strftime("%b %d %Y",gmtime())		#TODO: Change this depending on user input
-            my_model.time_left = #form.cleaned_data.get('time_left')
+            # my_model.time_left =#form.cleaned_data.get('time_left')
             my_model.time_left = strftime("%H:%M:%S", gmtime())    
             my_model.save()	
             # process the data in form.cleaned_data as required
