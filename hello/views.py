@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
+from time import strftime
 
 from .forms import NameForm
 from .models import Reminder
@@ -21,6 +22,7 @@ def submit(request):
             my_model.username = form.cleaned_data.get('username')
             my_model.message = form.cleaned_data.get('message')
             my_model.time_left = form.cleaned_data.get('time_left')
+            my_model.time_created = strftime("%Y-%m-%d %H:%M:%S")
             my_model.save()	
             # process the data in form.cleaned_data as required
             # ...
