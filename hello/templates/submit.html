@@ -15,12 +15,13 @@
 			<h1> REMIND ME YO <h1>
 			<h2> 1. Write a quick reminder <h2>
 			<h2> 2. Get a YO when the time is up <h2>
-			<form class="pure-form sign-up-form" action="/submit/" method="post">
-			    {% csrf_token %}
-			    {{ form }}
-			    <input type="submit" value="OK">
-			</form>
-
+			<ul>
+				<form class="pure-form sign-up-form" action="/submit/" method="post">
+				    {% csrf_token %}
+				    {{ form }}
+				    <input class="pure-button pure-button-primary" name="commit" type="submit" value="Create">
+				</form>
+			</ul>
 			<ul>
 
 			{% for greeting in greetings %}
@@ -28,7 +29,7 @@
 			{% endfor %}
 
 			</ul>
-			
+
 		</section>
 	</section>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
