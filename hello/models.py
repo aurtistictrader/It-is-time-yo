@@ -4,5 +4,7 @@ from django.db import models
 class Reminder(models.Model):
 	username = models.CharField(max_length=128)
 	message = models.CharField(max_length=400)
-	time_created = models.CharField(max_length=100)
-	time_left = models.CharField(max_length=100)
+	date_created = models.DateTimeField('date created')
+	time_created = models.DateTimeField('time created')
+	date_left = models.DateTimeField('date reminded')
+	time_left = models.DateTimeField('time reminded')
