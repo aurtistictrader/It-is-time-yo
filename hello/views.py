@@ -21,7 +21,8 @@ def submit(request):
             my_model = Reminder()
             my_model.username = form.cleaned_data.get('username')
             my_model.message = form.cleaned_data.get('message')
-            my_model.time_left = form.cleaned_data.get('time_left')
+            # my_model.time_left = form.cleaned_data.get('time_left')
+            my_model.time_left = str(datetime.now())            #TODO: make this legit time
             my_model.time_created = str(datetime.now())
             my_model.save()	
             # process the data in form.cleaned_data as required
