@@ -29,9 +29,10 @@ def submit(request):
             #
             givenHours = int(form.cleaned_data.get('hours'))
             givenMinutes = int(form.cleaned_data.get('minutes')) 
-            my_model.date_left = datetime.now() + timedelta(minutes=givenMinutes, hours=givenHours)
+            my_model.date_left =  "{:%Y-%m-%d}".format(datetime.now() + timedelta(minutes=givenMinutes, hours=givenHours))
+            my_model.time_left =  "{:%H:%M:%S}".format(datetime.now() + timedelta(minutes=givenMinutes, hours=givenHours))
             #my_model.time_left = strftime("%Y-%m-%d %H:%M:%S", gmtime())    
-            my_model.time_left = datetime.now() + timedelta(minutes=givenMinutes, hours=givenHours)
+            #my_model.time_left = datetime.now() + timedelta(minutes=givenMinutes, hours=givenHours)
             my_model.save()	
             # process the data in form.cleaned_data as required
             # ...
