@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from time import strftime, gmtime
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from .forms import NameForm
 from .models import Reminder
@@ -29,9 +29,9 @@ def submit(request):
             #
             givenHours = form.cleaned_data.get('hours')
             givenMinutes = form.cleaned_data.get('minutes') + givenHours * 60
-            my_model.date_left = datetime.now() + tdelta(minutes=givenMinutes)
+            my_model.date_left = datetime.now() + timedelta(minutes=givenMinutes)
             #my_model.time_left = strftime("%Y-%m-%d %H:%M:%S", gmtime())    
-            my_model.time_left = datetime.now() + tdelta(minutes=givenMinutes)
+            my_model.time_left = datetime.now() + timedelta(minutes=givenMinutes)
             my_model.save()	
             # process the data in form.cleaned_data as required
             # ...
