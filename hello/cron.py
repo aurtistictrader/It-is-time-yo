@@ -14,7 +14,7 @@ def timed_job():
 
     # This will be executed every 30 seconds
 	# Query into DB and then look for date_left that are past current date
-    lookup_users = Reminder.objects.raw(''' SELECT username, message
+    lookup_users = Reminder.objects.raw(''' SELECT username
 											FROM hello_reminder 
 											WHERE (	time_left <= (SELECT current_time) AND 
 													date_left = (SELECT current_date)) OR 
