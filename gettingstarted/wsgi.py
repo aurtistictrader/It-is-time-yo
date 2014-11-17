@@ -14,5 +14,3 @@ from django.core.wsgi import get_wsgi_application
 from dj_static import Cling
 
 application = Cling(get_wsgi_application())
-from hello.models.cron import set_interval, timed_job
-set_interval(timed_job(), 10)
