@@ -44,6 +44,5 @@ def submit(request):
 
 def ghettoping(request):
     # set job
-    set_interval(timed_job(), 10)
     return HttpResponseRedirect('/')
 
