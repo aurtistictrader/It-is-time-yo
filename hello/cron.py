@@ -1,4 +1,4 @@
-from .model import Reminder
+from .models import Reminder
 import threading
 
 def set_interval(func, sec):
