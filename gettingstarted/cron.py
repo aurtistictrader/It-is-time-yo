@@ -1,8 +1,5 @@
 from django_cron import cronScheduler, Job
-
-# This is a function I wrote to check a feedback email address
-# and add it to our database. Replace with your own imports
-
+from hello.model import Reminder
 
 class refreshDatabse(Job):
 	"""
@@ -11,18 +8,25 @@ class refreshDatabse(Job):
 	"""
 
 	# run every 30 seconds
-	run_every = 30
+	run_every = 5
 		
 	def job(self):
 		# This will be executed every 30 seconds
 		# Query into DB and then look for date_left that are past current date
+        lookup_users = Reminder.objects.raw(''' SELECT username, message
+												FROM hello_reminder 
+												WHERE (	time_left <= (SELECT current_time) AND 
+														date_left = (SELECT current_date)) OR 
+														date_left < (SELECT current_date)''')
+		
 		# Now grab this data and YO it
+        for user,msg in lookup_users:
+        	# do stuff here
 
 		# Finally delete it
-		"""
-			SQL: 
-			delete from hello_reminder where date_left < (select current_date);
-			delete from hello_reminder where time_left < (select current_time) and date_left = (select current_date);
-		"""
+        Reminder.objects.raw('''DELETE 	FROM hello_reminder 
+										WHERE (	time_left <= (SELECT current_time) AND 
+												date_left = (SELECT current_date)) OR 
+												date_left < (SELECT current_date)''')
 
 cronScheduler.register(refreshDatabse)
