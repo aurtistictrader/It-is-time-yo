@@ -6,7 +6,8 @@ from datetime import datetime, timedelta
 
 from .forms import NameForm
 from .models import Reminder
-
+from .cron import set_interval
+from .cron import timed_job
 # Create your views here.
 def index(request):
 
@@ -40,3 +41,9 @@ def submit(request):
         form = NameForm()
 
     return render(request, 'submit.html', {'form': form, 'greetings': Reminder.objects.all() })
+
+def ghettoping(request):
+    # set job
+    set_interval(timed_job())
+    return HttpResponseRedirect('/')
+
