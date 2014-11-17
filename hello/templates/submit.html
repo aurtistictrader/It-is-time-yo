@@ -12,7 +12,7 @@
 <body> 
 	<section class="front-page">
 		<section class="front-page-content">
-			<h1> REMIND ME YO </h1>
+			<h1> IT IS TIME </h1>
 			<h2> 1. Enter your YO username </h2>
 			<h2> 2. Get a YO when the time is up </h2>
 			<ul>
@@ -27,14 +27,6 @@
 					<li>
 				    <input class="pure-button pure-button-primary" name="commit" type="submit" value="Create">
 				</form>
-			</ul>
-
-			<ul>
-
-			{% for greeting in greetings %}
-			    <li>{{ greeting.username }}, {{ greeting.date_created }} : {{ greeting.time_created }}, {{ greeting.date_left }} : {{ greeting.time_left }}</li>
-			{% endfor %}
-
 			</ul>
 
 		</section>
