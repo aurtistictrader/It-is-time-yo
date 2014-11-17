@@ -1,16 +1,13 @@
-from django_cron import cronScheduler, Job
 from hello.model import Reminder
+from django_cron import CronJobBase, Schedule
 
-class refreshDatabse(Job):
-	"""
-	Cron Job that checks the lgr users mailbox and adds any 
-	approved senders' attachments to the db
-	"""
+class RefreshDatabase(CronJobBase):
+    RUN_EVERY_MINS = 1 # every minute
 
-	# run every 30 seconds
-	run_every = 5
-		
-	def job(self):
+    schedule = Schedule(run_every_mins=RUN_EVERY_MINS)
+    code = 'hello.refresh_database'    # a unique code
+
+    def do(self):
 		# This will be executed every 30 seconds
 		# Query into DB and then look for date_left that are past current date
         lookup_users = Reminder.objects.raw(''' SELECT username, message
@@ -28,5 +25,4 @@ class refreshDatabse(Job):
 										WHERE (	time_left <= (SELECT current_time) AND 
 												date_left = (SELECT current_date)) OR 
 												date_left < (SELECT current_date)''')
-
-cronScheduler.register(refreshDatabse)
+        pass    # do your thing here
