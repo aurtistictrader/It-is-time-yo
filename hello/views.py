@@ -22,7 +22,7 @@ def submit(request):
         if form.is_valid():
             my_model = Reminder()
             my_model.username = form.cleaned_data.get('username')
-            my_model.message = form.cleaned_data.get('message')
+           # my_model.message = form.cleaned_data.get('message')
             my_model.date_created = strftime("%Y-%m-%d",gmtime())        
             my_model.time_created = strftime("%Y-%m-%d %H:%M:%S",gmtime())
 
