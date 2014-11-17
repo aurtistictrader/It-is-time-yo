@@ -1,7 +1,6 @@
 CREATE TABLE HELLO_REMINDER (
 	id serial NOT NULL PRIMARY KEY,
 	username varchar(128) NOT NULL,
-	message varchar(400) NOT NULL,
 	date_created DATE NOT NULL,
 	time_created TIME NOT NULL,
 	date_left DATE NOT NULL,
