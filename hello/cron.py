@@ -24,8 +24,8 @@ def timed_job():
     	# do stuff here
 
 	# Finally delete it
-    Reminder.objects.raw('''DELETE 	FROM hello_reminder 
-									WHERE (	time_left <= (SELECT current_time) AND 
+    Reminder.objects.raw('''DELETE FROM hello_reminder 
+								   WHERE (	time_left <= (SELECT current_time) AND 
 											date_left = (SELECT current_date)) OR 
 											date_left < (SELECT current_date)''')
     pass    # do your thing here
