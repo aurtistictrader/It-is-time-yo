@@ -45,6 +45,11 @@ def submit(request):
 def ghettoping(request):
     # set job
     # set_interval(timed_job(), 10)
-    Reminder.objects.raw('''DELETE FROM hello_reminder WHERE (  time_left <= (SELECT current_time) AND date_left = (SELECT current_date)) OR date_left < (SELECT current_date)''')
+    from django.db import connection
+
+    cursor = connection.cursor()
+    cursor.execute('''DELETE FROM hello_reminder WHERE (  time_left <= (SELECT current_time) AND date_left = (SELECT current_date)) OR date_left < (SELECT current_date)''')
+    connection.commit()
+    #Reminder.objects.raw('''DELETE FROM hello_reminder WHERE (  time_left <= (SELECT current_time) AND date_left = (SELECT current_date)) OR date_left < (SELECT current_date)''')
     return HttpResponseRedirect('/')
 
