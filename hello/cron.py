@@ -1,10 +1,16 @@
 from hello.model import Reminder
-from apscheduler.schedulers.blocking import BlockingScheduler
+import threading
 
-sched = BlockingScheduler()
+def set_interval(func, sec):
+    def func_wrapper():
+        set_interval(func, sec)
+        func()
+    t = threading.Timer(sec, func_wrapper)
+    t.start()
+    return t
 
-@sched.scheduled_job('interval', seconds=10)
 def timed_job():
+
     # This will be executed every 30 seconds
 	# Query into DB and then look for date_left that are past current date
     lookup_users = Reminder.objects.raw(''' SELECT username, message
@@ -23,5 +29,3 @@ def timed_job():
 											date_left = (SELECT current_date)) OR 
 											date_left < (SELECT current_date)''')
     pass    # do your thing here
-
-sched.start()
