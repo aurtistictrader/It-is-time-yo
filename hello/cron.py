@@ -1,5 +1,6 @@
 from .models import Reminder
 import threading
+from django.db import connection
 
 def set_interval(func, sec):
     def func_wrapper():
@@ -24,5 +25,7 @@ def timed_job():
     # do stuff here
 
 	# Finally delete it
-    Reminder.objects.raw('''DELETE FROM hello_reminder WHERE (	time_left <= (SELECT current_time) AND date_left = (SELECT current_date)) OR date_left < (SELECT current_date)''')
+    cursor = connection.cursor()
+    cursor.execute('''DELETE FROM hello_reminder WHERE (  time_left <= (SELECT current_time) AND date_left = (SELECT current_date)) OR date_left < (SELECT current_date)''')
+    connection.commit()
     pass
