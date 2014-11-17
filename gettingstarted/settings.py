@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'hello',
     'gettingstarted',
+    'django_cron',
 )
 
 MIDDLEWARE_CLASSES = (
