@@ -21,7 +21,7 @@ def timed_job():
                                                     date_left = (SELECT current_date)) OR
                                                     date_left < (SELECT current_date)''')
     for users in lookup_users:
-        requests.post("http://api.justyo.co/yo/", data={'api_token': api_token, 'username': users.username})
+        requests.post("http://api.justyo.co/yo/", data={'api_token': api_token, 'username': str(users.username).upper()})
 
     # Now grab this data and YO it
     # for user,msg in lookup_users:
