@@ -1,6 +1,5 @@
 from django_cron import cronScheduler, Job
-from .models import Reminder
-from datetime import datetime
+from hello.model import Reminder
 
 class refreshDatabse(Job):
 	"""
@@ -9,7 +8,7 @@ class refreshDatabse(Job):
 	"""
 
 	# run every 30 seconds
-	run_every = 30
+	run_every = 5
 		
 	def job(self):
 		# This will be executed every 30 seconds
