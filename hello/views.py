@@ -8,6 +8,7 @@ from .forms import NameForm
 from .models import Reminder
 from .cron import set_interval
 from .cron import timed_job
+import time
 # Create your views here.
 def index(request):
 
@@ -45,5 +46,6 @@ def submit(request):
 def ghettoping(request):
     # set job
     timed_job()
-    return HttpResponseRedirect('/')
+    time.sleep(10)
+    return HttpResponseRedirect('/ghettoping/')
 
