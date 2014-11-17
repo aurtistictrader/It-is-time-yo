@@ -41,7 +41,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'hello',
     'gettingstarted',
-    'django_cron',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -51,7 +50,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'hello.cron.RefreshDatabase',
 )
 
 ROOT_URLCONF = 'gettingstarted.urls'
