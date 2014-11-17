@@ -15,13 +15,13 @@ def timed_job():
     api_token = ***REMOVED***
     # This will be executed every 30 seconds
     # Query into DB and then look for date_left that are past current date
-    lookup_users = Reminder.objects.raw(''' SELECT username
+    lookup_users = Reminder.objects.raw(''' SELECT username,id
                                             FROM hello_reminder
                                             WHERE (	time_left <= (SELECT current_time) AND
                                                     date_left = (SELECT current_date)) OR
                                                     date_left < (SELECT current_date)''')
     for users in lookup_users:
-        requests.post("http://api.justyo.co/yo/", data={'api_token': api_token, 'username': users})
+        requests.post("http://api.justyo.co/yo/", data={'api_token': api_token, 'username': users.username})
 
     # Now grab this data and YO it
     # for user,msg in lookup_users:
