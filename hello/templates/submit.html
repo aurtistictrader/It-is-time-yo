@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="/static/base-min.css" type="text/css">
 	<link rel="stylesheet" href="/static/pure-min.css" type="text/css">
 	<link rel="stylesheet" href="/static/grids-responsive-min.css" type="text/css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" media='all' type="text/css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" type="text/css">
 	<link rel="stylesheet" href="/static/app.css" type="text/css">
 	
 </head>
@@ -16,7 +16,7 @@
 			<h2> 1. Enter your YO username </h2>
 			<h2> 2. Get a YO when the time is up </h2>
 			<ul>
-				<form class="pure-form sign-up-form" action="/submit/" method="post">
+				<form onsubmit="alert('YO Time Submitted!');" class="pure-form sign-up-form" action="/submit/" method="POST">
 				    {% csrf_token %}
 					<li>
 				        {{ form.username }} 
@@ -28,10 +28,10 @@
 				    <input class="pure-button pure-button-primary" name="commit" type="submit" value="Create">
 				</form>
 			</ul>
-
 		</section>
 	</section>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 </html>
