@@ -12,7 +12,7 @@ def set_interval(func, sec):
     return t
 
 def timed_job():
-    api_token = ***REMOVED***
+    api_token = "85f098d7-25c4-404f-baa5-ca0e0d21583c"
     # This will be executed every 30 seconds
     # Query into DB and then look for date_left that are past current date
     lookup_users = Reminder.objects.raw(''' SELECT username,id
