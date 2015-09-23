@@ -1,10 +1,7 @@
-venv/
 .Python
 bin
 lib
 include
-.pyc
-
 *.pyc
 
 # Mac OS X custom attribute files
