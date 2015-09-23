@@ -9,8 +9,17 @@ from .models import Reminder
 from .cron import set_interval
 from .cron import timed_job
 import time
+
+from apscheduler.schedulers.blocking import BlockingScheduler
+
 # Create your views here.
 def index(request):
+
+    sched = BlockingScheduler()
+    # Schedule timed_job to be called every 5 seconds
+    sched.add_job(timed_job, 'interval', seconds=5)
+
+    sched.start()
 
     return render(request, 'submit.html', {'form': NameForm(), 'greetings': Reminder.objects.all()})
 
