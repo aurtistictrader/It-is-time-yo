@@ -1,4 +1,7 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
+from .models import Reminder
+from django.db import connection
+import requests
 
 sched = BlockingScheduler()
 
