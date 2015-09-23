@@ -1,11 +1,11 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
-from .models import Reminder
+from hello.models import Reminder
 from django.db import connection
 import requests
 
 sched = BlockingScheduler()
 
-@sched.scheduled_job('interval', seconds=5)
+@sched.timed_job('interval', seconds=5)
 def timed_job():
     api_token = "85f098d7-25c4-404f-baa5-ca0e0d21583c"
     # This will be executed every 30 seconds
