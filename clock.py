@@ -1,5 +1,8 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
-from hello.cron import timed_job
+import requests
+
+def timed_job():
+    requests.get("http://itistimeyo.me/ghettoping", data={})
 
 sched = BlockingScheduler()
 # Schedule timed_job to be called every 5 seconds

@@ -43,3 +43,8 @@ def submit(request):
         form = NameForm()
 
     return render(request, 'submit.html', {'form': form, 'greetings': Reminder.objects.all() })
+
+def ghettoping(request):
+    # set job
+    timed_job()
+    return HttpResponseRedirect('/')
