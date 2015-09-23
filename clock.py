@@ -5,7 +5,6 @@ import requests
 
 sched = BlockingScheduler()
 
-@sched.timed_job('interval', seconds=5)
 def timed_job():
     api_token = "85f098d7-25c4-404f-baa5-ca0e0d21583c"
     # This will be executed every 30 seconds
@@ -27,5 +26,8 @@ def timed_job():
     cursor.execute('''DELETE FROM hello_reminder WHERE (  time_left <= (SELECT current_time) AND date_left = (SELECT current_date)) OR date_left < (SELECT current_date)''')
     connection.commit()
     pass
+
+# Schedule timed_job to be called every 5 seconds
+sched.add_job(timed_job, 'interval', seconds=5)
 
 sched.start()
