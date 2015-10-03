@@ -92,7 +92,7 @@ STATIC_URL = '/static/'
 
 
 # Parse database configuration from $DATABASE_URL
-DATABASES['default'] =  dj_database_url.config()
+# DATABASES['default'] =  dj_database_url.config()
 # DATABASES['default'] =  dj_database_url.config('postgres://gofudpafgikgji:_nc43pl3RW-0WJsYzA_HwfX_Sf@ec2-54-204-39-187.compute-1.amazonaws.com:5432/d2nromg7sp6fn4')
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
