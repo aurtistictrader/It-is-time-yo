@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import dj_database_url
+from local_settings import *
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -19,7 +20,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-DEFAULT_SECRET_KEY = '3iy-!-d$!pc_ll$#$elg&cpr@*tfn-d5&n9ag=)%#()t$$5%5^'
 SECRET_KEY = os.environ.get('SECRET_KEY', DEFAULT_SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -63,10 +63,10 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd2nromg7sp6fn4',
-        'USER': 'gofudpafgikgji',
-        'PASSWORD': '_nc43pl3RW-0WJsYzA_HwfX_Sf',
-        'HOST': 'ec2-54-204-39-187.compute-1.amazonaws.com',
+        'NAME': os.environ['NAME'],
+        'USER': os.environ['USER'],
+        'PASSWORD': os.environ['PASSWORD'],
+        'HOST': os.environ['HOST'],
         'PORT': '5432',
     }
 }
