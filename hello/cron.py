@@ -1,7 +1,7 @@
 from .models import Reminder
 import threading
 from django.db import connection
-from local_settings import API_TOKEN
+from gettingstarted.local_settings import API_TOKEN
 import requests
 
 def set_interval(func, sec):
