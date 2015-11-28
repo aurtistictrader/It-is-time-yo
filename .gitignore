@@ -3,6 +3,7 @@ bin
 lib
 include
 *.pyc
+*/local_settings.py
 
 # Mac OS X custom attribute files
 .DS_Store
